@@ -9,11 +9,7 @@ import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
-import com.intellij.openapi.components.PersistentStateComponent;
-import com.intellij.openapi.components.Service;
-import com.intellij.openapi.components.State;
-import com.intellij.openapi.components.Storage;
-import com.intellij.openapi.components.StoragePathMacros;
+import com.intellij.openapi.components.*;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
@@ -47,9 +43,7 @@ import java.util.logging.Logger;
 
 import static com.darkyen.GitIntegration.SetupCommitHookResult.GIT_DIR_NOT_FOUND;
 import static com.darkyen.GitIntegration.SetupCommitHookResult.GIT_HOOKS_DIR_NOT_FOUND;
-import static com.darkyen.Util.convertToIOFile;
-import static com.darkyen.Util.getProjectBaseDir;
-import static com.darkyen.Util.msToS;
+import static com.darkyen.Util.*;
 
 /**
  * Every entry-point method of this class is to be synchronized.
@@ -57,7 +51,9 @@ import static com.darkyen.Util.msToS;
  * Each operation that needs to be on a particular thread must do it itself.
  */
 @Service({ Service.Level.PROJECT })
-@State(name="DarkyenusTimeTracker", storages = {@Storage(value = StoragePathMacros.WORKSPACE_FILE)})
+@State(name="DarkyenusTimeTracker", storages = {
+		@Storage(value = StoragePathMacros.WORKSPACE_FILE),
+		@Storage(value = "timetracker.xml")})
 public final class TimeTrackerService implements PersistentStateComponent<TimeTrackerPersistentState>, Disposable {
 
 	private static final Logger LOG = Logger.getLogger(TimeTrackerService.class.getName());
