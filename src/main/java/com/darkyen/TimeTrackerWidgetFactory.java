@@ -20,7 +20,7 @@ public final class TimeTrackerWidgetFactory implements StatusBarWidgetFactory {
 	@NotNull
 	@Override
 	public String getDisplayName() {
-		return "Darkyen's Time Tracker";
+		return "Chizganov Darkyen's Time Tracker";
 	}
 
 	@Override

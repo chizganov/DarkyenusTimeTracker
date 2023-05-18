@@ -32,7 +32,7 @@ import static com.darkyen.TimeTrackingStatus.RUNNING;
 public final class TimeTrackerWidget extends JButton implements CustomStatusBarWidget {
 
     // Synchronized with xml
-    public static final String ID = "com.darkyen.DarkyenusTimeTracker";
+    public static final String ID = "io.github.chizganov.DarkyenusTimeTracker";
 
     @NotNull
     private final TimeTrackerService service;

@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.darkyen.darkyenustimetracker</id>
-    <name>Darkyen's Time Tracker</name>
+    <id>io.github.chizganov.darkyenustimetracker</id>
+    <name>Chizganov Darkyen's Time Tracker</name>
     <vendor email="darkyenus@gmail.com" url="https://darkyen.com">Jan Polák</vendor>
     <category>Miscellaneous</category>
 
